@@ -1,7 +1,7 @@
 // import logo from "./logo.svg";
 import "./App.css";
-import Header from "./components/Header/Header";
-import Profile from "./components/Header/Profile";
+import Header from "./components/Header";
+import Profile from "./components/Profile";
 import Navbar from "./components/Navbar";
 
 function App() {
