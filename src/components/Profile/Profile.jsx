@@ -1,15 +1,18 @@
 import s from './Profile.module.css'
 import MyPosts from './MyPosts/MyPosts';
-import ProfileInfo from './ProfileInfo/PrifileInfo';
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 
-const Profile = () => {
+const Profile = (props) => {
+
+  console.log(props);
+
   return (
     <div >
       <ProfileInfo/>
 
       
-     <MyPosts/>
+     <MyPosts posts = {props.posts}/>
     </div>
   );
 };
