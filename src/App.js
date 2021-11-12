@@ -10,8 +10,8 @@ import {Route, Routes, BrowserRouter, } from 'react-router-dom'
 
 function App(props) {
 
-  let DialogComponent = ()=><Dialogs messagesData={props.messagesData} dialogsData={props.dialogsData}/>
-let ProfileComponent = ()=><Profile posts={props.posts}/>
+  let DialogComponent = () => <Dialogs state={ props.state.dialogsPage}/>
+let ProfileComponent = ()=><Profile state={props.state.profilePage}/>
   return (
     <BrowserRouter>
     <div className="app-wrapper">
