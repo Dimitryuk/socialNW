@@ -4,7 +4,8 @@ import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Navbar from "./components/Navbar/Navbar";
 import Dialogs from "./components/Dialogs/Dialogs";
-import {Route, Routes, BrowserRouter, } from 'react-router-dom'
+import {Route,  BrowserRouter, Routes } from 'react-router-dom'
+import { Routes } from "react-router";
 import { addPost } from "./components/redux/state";
 
 
@@ -13,7 +14,7 @@ function App(props) {
   console.log(props)
 
   let DialogComponent = () => <Dialogs state={ props.state.dialogsPage}/>
-let ProfileComponent = ()=><Profile state={props.state.profilePage} addPost={props.addPost}/>
+let ProfileComponent = ()=><Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
   return (
     <BrowserRouter>
     <div className="app-wrapper">
@@ -22,12 +23,16 @@ let ProfileComponent = ()=><Profile state={props.state.profilePage} addPost={pro
 
       <div className='app-wrapper-content'>
          <Routes>
-         {/* <Route path='/dialogs' render={()=> <Dialogs/>}/>
-        < Route path='/profile' render={()=> <Profile/>}/> */}
+       
+         <Route path='/dialogs' render={()=> <Dialogs state={props.state.dialogsPage}/>}/>
+        < Route path='/profile' render={()=> <Profile profilePage={props.state.profilePage}  addPost={props.addPost}/>}/>
 
-         <Route exact path='/dialogs' element ={<DialogComponent/>}/>
+         {/* <Route exact path='/dialogs' element ={<DialogComponent/>}/>
 
-        <Route path='/profile' element ={<ProfileComponent />} />
+        <Route path='/profile' element ={<ProfileComponent />} /> */}
+          {/* <Route exact path='/dialogs' element ={<DialogComponent/>}/> */}
+         
+          
 
         </Routes> 
         
