@@ -5,7 +5,7 @@ import Profile from "./components/Profile/Profile";
 import Navbar from "./components/Navbar/Navbar";
 import Dialogs from "./components/Dialogs/Dialogs";
 import {Route,  BrowserRouter, Routes } from 'react-router-dom'
-import { Routes } from "react-router";
+
 import { addPost } from "./components/redux/state";
 
 
@@ -24,8 +24,8 @@ let ProfileComponent = ()=><Profile profilePage={props.state.profilePage} addPos
       <div className='app-wrapper-content'>
          <Routes>
        
-         <Route path='/dialogs' render={()=> <Dialogs state={props.state.dialogsPage}/>}/>
-        < Route path='/profile' render={()=> <Profile profilePage={props.state.profilePage}  addPost={props.addPost}/>}/>
+         <Route path='/dialogs' element={<DialogComponent/>}/>
+        < Route path='/profile' element={<ProfileComponent/>}/>
 
          {/* <Route exact path='/dialogs' element ={<DialogComponent/>}/>
 
