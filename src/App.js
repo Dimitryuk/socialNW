@@ -14,7 +14,7 @@ function App(props) {
   console.log(props)
 
   let DialogComponent = () => <Dialogs state={ props.state.dialogsPage}/>
-let ProfileComponent = ()=><Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText}/>
+let ProfileComponent = ()=><Profile profilePage={props.state.profilePage} dispatch={props.dispatch}/>
   return (
     <BrowserRouter>
     <div className="app-wrapper">
