@@ -11,7 +11,7 @@ import { addPost } from './components/redux/state';
 function App(props) {
   console.log(props);
 
-  let DialogComponent = () => <Dialogs state={props.state.dialogsPage} />;
+  let DialogComponent = () => <Dialogs store={props.store} />;
   let ProfileComponent = () => (
     <Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />
   );
