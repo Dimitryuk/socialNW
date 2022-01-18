@@ -2,7 +2,7 @@ import React from 'react';
 import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
-import store from './components/redux/state';
+import store from './components/redux/redux-store';
 
 import ReactDOM from 'react-dom';
 
@@ -20,4 +20,7 @@ let rerenderEntireTree = state => {
 };
 
 rerenderEntireTree(store.getState());
-store.subscribe(rerenderEntireTree);
+store.subscribe(() => {
+  let state = store.getState();
+  rerenderEntireTree(state);
+});

@@ -6,7 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import Dialogs from './components/Dialogs/Dialogs';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
-import { addPost } from './components/redux/state';
+import { addPost } from './components/redux/store';
 
 function App(props) {
   console.log(props);
