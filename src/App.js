@@ -3,18 +3,19 @@ import './App.css';
 import Header from './components/Header/Header';
 import Profile from './components/Profile/Profile';
 import Navbar from './components/Navbar/Navbar';
-import Dialogs from './components/Dialogs/Dialogs';
+
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
 import { addPost } from './components/redux/store';
+import DialogsContainer from './components/Dialogs/dislogsContainer';
 
 function App(props) {
   console.log(props);
 
-  let DialogComponent = () => <Dialogs store={props.store} />;
-  let ProfileComponent = () => (
-    <Profile profilePage={props.state.profilePage} dispatch={props.dispatch} />
-  );
+  let DialogComponent = () => <DialogsContainer store={props.store} />;
+  let ProfileComponent = () => 
+    <Profile store = {props.store} />
+  ;
   return (
     <BrowserRouter>
       <div className="app-wrapper">
