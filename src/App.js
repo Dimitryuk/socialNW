@@ -12,7 +12,8 @@ import DialogsContainer from './components/Dialogs/dislogsContainer';
 function App(props) {
   console.log(props);
 
-  let DialogComponent = () => <DialogsContainer store={props.store} />;
+  let DialogComponent = () =>
+    <DialogsContainer store={props.store} />;
   let ProfileComponent = () => 
     <Profile store = {props.store} />
   ;

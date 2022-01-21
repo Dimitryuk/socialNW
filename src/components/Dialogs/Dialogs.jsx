@@ -18,11 +18,6 @@ const Dialogs = props => {
   let messagesElements = state.messages.map(m => (
     <Message message={m.message} />
   ));
-  //  let newMessage = React.createRef()
-  //  let sendMessage = ()=>{
-  //      let text = newMessage.current.value
-  //      alert (text)
-  //  }
 
   let newMessageBody = state.newMessageBody;
 
@@ -31,7 +26,8 @@ const Dialogs = props => {
   };
   let onNewMessageChange = e => {
     let body = e.target.value;
-props.updateNewMessageBody(body)
+
+    props.updateNewMessageBody(body)
   };
   return (
     <div className={s.dialogs}>
