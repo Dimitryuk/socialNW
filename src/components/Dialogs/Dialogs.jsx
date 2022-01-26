@@ -9,14 +9,13 @@ import {
 } from '../redux/dialogs-reducer';
 
 const Dialogs = props => {
- 
   let state = props.dialogsPage;
   let dialogsElements = state.dialogs.map(dialog => (
-    <DialogItem name={dialog.name} id={dialog.id} />
+    <DialogItem name={dialog.name} key={dialog.id} id={dialog.id} />
   ));
 
   let messagesElements = state.messages.map(m => (
-    <Message message={m.message} />
+    <Message message={m.message} key={m.id} />
   ));
 
   let newMessageBody = state.newMessageBody;
@@ -27,7 +26,7 @@ const Dialogs = props => {
   let onNewMessageChange = e => {
     let body = e.target.value;
 
-    props.updateNewMessageBody(body)
+    props.updateNewMessageBody(body);
   };
   return (
     <div className={s.dialogs}>

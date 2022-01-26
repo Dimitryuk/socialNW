@@ -8,12 +8,16 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 
 import { addPost } from './components/redux/store';
 import DialogsContainer from './components/Dialogs/dislogsContainer';
+import Users from './components/Users/Users';
+import UsersContainer from './components/Users/UsersContainer';
 
 function App(props) {
   console.log(props);
 
   let DialogComponent = () => <DialogsContainer />;
   let ProfileComponent = () => <Profile />;
+  let UsersComponent = () => <UsersContainer />;
+
   return (
     <BrowserRouter>
       <div className="app-wrapper">
@@ -24,6 +28,7 @@ function App(props) {
           <Routes>
             <Route path="/dialogs" element={<DialogComponent />} />
             <Route path="/profile" element={<ProfileComponent />} />
+            <Route path="/users" element={<UsersComponent />} />
 
             {/* <Route exact path='/dialogs' element ={<DialogComponent/>}/>
 
