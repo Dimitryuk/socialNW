@@ -4,15 +4,15 @@ import userPhoto from '../../assets/images/user.png';
 import styles from './users.module.css';
 
 class Users extends React.Component {
-  constructor(props) {
-    super(props);
 
-    axios
+  componentDidMount() {
+     axios
       .get('https://social-network.samuraijs.com/api/1.0/users')
       .then(response => {
         console.log(response.data);
         this.props.setUsers(response.data.items);
       });
+    
   }
 
   render() {
