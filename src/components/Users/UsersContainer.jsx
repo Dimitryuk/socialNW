@@ -2,12 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import {
-  followActionCreator,
-  setUsersActionCreator,
-  unfollowActionCreator,
-  setCurrentPageActionCreator,
-  setUsersTotalCountActionCreator,
-  toggleIsFetchingActionCreator,
+  follow,
+  setUsers,
+  unfollow,
+  setCurrentPage,
+  setUsersTotalCount,
+  toggleIsFetching,
 } from '../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../common/Preloader/Preloader';
@@ -22,7 +22,7 @@ class UsersContainer extends React.Component {
       .then(response => {
         this.props.toggleIsFetching(false)
         this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCount(response.data.totalCount);
+        this.props.setUsersTotalCount(response.data.totalCount);
       });
   }
   onPageChanged = pageNumber => {
@@ -67,28 +67,36 @@ let mapStateToProps = state => {
   };
 };
 
-let mapDispatchToProps = dispatch => {
-  return {
-    follow: userId => {
-      dispatch(followActionCreator(userId));
-    },
+// let mapDispatchToProps = dispatch => {
+//   return {
+//     follow: userId => {
+//       dispatch(followActionCreator(userId));
+//     },
 
-    unfollow: userId => {
-      dispatch(unfollowActionCreator(userId));
-    },
-    setUsers: users => {
-      dispatch(setUsersActionCreator(users));
-    },
-    setCurrentPage: pageNumber => {
-      dispatch(setCurrentPageActionCreator(pageNumber));
-    },
-    setTotalUsersCount: totalCount => {
-      dispatch(setUsersTotalCountActionCreator(totalCount));
-    },
-    toggleIsFetching: (isFetching) => {
-      dispatch(toggleIsFetchingActionCreator(isFetching))
-    }
-  };
-};
+//     unfollow: userId => {
+//       dispatch(unfollowActionCreator(userId));
+//     },
+//     setUsers: users => {
+//       dispatch(setUsersActionCreator(users));
+//     },
+//     setCurrentPage: pageNumber => {
+//       dispatch(setCurrentPageActionCreator(pageNumber));
+//     },
+//     setTotalUsersCount: totalCount => {
+//       dispatch(setUsersTotalCountActionCreator(totalCount));
+//     },
+//     toggleIsFetching: (isFetching) => {
+//       dispatch(toggleIsFetchingActionCreator(isFetching))
+//     }
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {
+    follow,
+     unfollow ,
+    setUsers,
+    setCurrentPage,
+     setUsersTotalCount,
+     toggleIsFetching,
+
+  })(UsersContainer);
